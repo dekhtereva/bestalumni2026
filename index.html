@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1200" />
+<title>Анастасия Дехтерева — Лучший выпускник ИТМО</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:        #EFE7D3;
+    --bg-deep:  #E5DBC2;
+    --ink:      #0F0F0F;
+    --ink-soft: #2A2A2A;
+    --muted:    #7A6F58;
+    --line:     #1F1F1F;
+    --paper:    #FFFBF1;
+    --accent:   #E83417;
+    --accent-2: #1F39C0;
+    --hl:       #F3D03E;
+
+    --maxw: 1340px;
+    --gutter: 56px;
+
+    --display: 'Unbounded', system-ui, sans-serif;
+    --body:    'Onest', system-ui, sans-serif;
+    --mono:    'JetBrains Mono', ui-monospace, monospace;
+  }
+  body[data-theme="red"]     { --accent:#E83417; --accent-2:#1F39C0; --bg:#EFE7D3; --bg-deep:#E5DBC2; }
+  body[data-theme="forest"]  { --accent:#0E6B3A; --accent-2:#C0431C; --bg:#EEE9D8; --bg-deep:#E2DCC6; }
+  body[data-theme="cobalt"]  { --accent:#1E3FB8; --accent-2:#E83417; --bg:#EDE7D6; --bg-deep:#DDD5BC; }
+  body[data-theme="ink"]     { --accent:#FE4A23; --accent-2:#F3D03E; --bg:#101010; --bg-deep:#1A1A1A; --ink:#F5F0E1; --ink-soft:#D5CFBE; --muted:#9C937F; --line:#F5F0E1; --paper:#1C1C1C; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+  a { color: inherit; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 36px; height: 36px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+  }
+  .topbar nav {
+    display: flex;
+    gap: 4px;
+    font-size: 13px;
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+  }
+  .topbar nav a {
+    text-decoration: none;
+    padding: 8px 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .topbar nav a:hover { border-color: var(--line); }
+  .topbar nav a.is-cta { background: var(--ink); color: var(--bg); }
+
+  /* ---------- TICKER ---------- */
+  .ticker {
+    background: var(--ink);
+    color: var(--bg);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    padding: 14px 0;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ticker-track span { display: inline-flex; align-items: center; gap: 48px; }
+  .ticker-track .dot {
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 999px;
+    display: inline-block;
+  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 56px 0 80px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+    align-items: end;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow .bar { width: 28px; height: 1px; background: var(--ink); }
+  .hero-eyebrow b { color: var(--accent); font-weight: 500; }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(64px, 8.4vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+  .hero h1 .italic {
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'Onest', serif;
+    color: var(--accent);
+  }
+  .hero h1 .underline {
+    text-decoration: underline;
+    text-decoration-thickness: 6px;
+    text-underline-offset: 14px;
+    text-decoration-color: var(--accent);
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: 40px;
+  }
+  .hero-meta > div {
+    padding: 18px 22px 16px;
+    border-right: 1px solid var(--line);
+  }
+  .hero-meta > div:last-child { border-right: 0; }
+  .hero-meta .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .hero-meta .v {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-photo {
+    position: relative;
+    background: var(--bg-deep);
+    border: 1px solid var(--line);
+  }
+  .hero-photo image-slot {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: block;
+  }
+  .hero-photo .photo-tag {
+    position: absolute;
+    left: 16px; bottom: 16px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .noms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .nom {
+    border: 1px solid var(--line);
+    padding: 9px 16px 8px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nom.is-on {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .nom .pulse {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 999px;
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(232,52,23,0.55); }
+    70%  { box-shadow: 0 0 0 10px rgba(232,52,23,0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,52,23,0); }
+  }
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto {
+    padding: 100px 0 100px;
+    border-bottom: 1px solid var(--line);
+  }
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    margin-top: 6px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .manifesto p {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(28px, 2.6vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 950px;
+    text-wrap: pretty;
+  }
+  .manifesto p em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .manifesto p .mark {
+    background: var(--hl);
+    padding: 0 8px;
+    margin: 0 -2px;
+    box-decoration-break: clone;
+  }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline { padding: 32px 0 0; }
+  .year {
+    border-bottom: 1px solid var(--line);
+    padding: 80px 0 100px;
+    position: relative;
+  }
+  .year-head {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 56px;
+  }
+  .year-num {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .year-num .big {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+  }
+  .year-num .lbl {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    color: var(--ink);
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .year-titleblock { padding-top: 14px; }
+  .year-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  .year-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(40px, 4.5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .year-title .accent { color: var(--accent); font-style: italic; font-weight: 500; }
+  .year-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+  }
+  .year-tags span {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--paper);
+  }
+
+  .year-body {
+    display: block;
+  }
+  .year-lead {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    margin: 0 0 36px;
+    max-width: 820px;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .year-lead strong { font-weight: 600; }
+
+  /* ---------- MOMENTS LIST (each item = photo + date + body) ---------- */
+  .moments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .moments li {
+    display: grid;
+    grid-template-columns: 130px 1fr 240px;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    position: relative;
+  }
+  .moments li::before {
+    display: none;
+  }
+  .moments { counter-reset: item; }
+  .moments li .m-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 7px 12px 6px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    justify-self: start;
+    white-space: nowrap;
+  }
+  .moments li .m-body {
+    font-family: var(--body);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .moments li .m-body b {
+    font-weight: 600;
+    background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 35%, transparent) 62%, color-mix(in srgb, var(--accent) 35%, transparent) 92%, transparent 92%);
+    padding: 0 2px;
+  }
+  .moments li .m-body small {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .moments li .m-photo {
+    width: 240px;
+    height: 160px;
+    background: var(--bg-deep);
+    justify-self: end;
+  }
+  .moments li.no-photo {
+    grid-template-columns: 130px 1fr;
+  }
+  .moments li .m-photo image-slot {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Feature row: full-width with multiple photos beneath */
+  .moments li.is-feature {
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: auto auto;
+    background: var(--bg-deep);
+    padding: 32px;
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    align-items: start;
+  }
+  .moments li.is-feature .m-date { grid-row: 1; grid-column: 1; margin-top: 4px; }
+  .moments li.is-feature .m-body { grid-row: 1; grid-column: 2; font-size: 22px; }
+  .moments li.is-feature .m-body em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .moments li.is-feature .m-photos {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 12px;
+  }
+  .moments li.is-feature .m-photos image-slot {
+    width: 100%;
+    display: block;
+    background: var(--paper);
+  }
+  .moments li.is-feature .m-photos .p-big image-slot { aspect-ratio: 4/3; }
+  .moments li.is-feature .m-photos .p-sm  image-slot { aspect-ratio: 4/3; }
+
+  /* Highlight (★) row */
+  .moments li.is-highlight .m-date {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .moments li.is-highlight .m-body::before {
+    content: '★ ';
+    color: var(--accent);
+  }
+
+  .year[data-tone="paper"]  { background: var(--paper); }
+  .year[data-tone="cream"]  { background: var(--bg); }
+  .year[data-tone="deep"]   { background: var(--bg-deep); }
+
+  /* ---------- OUTRO ---------- */
+  .outro {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 120px 0 80px;
+  }
+  .outro-grid {
+    display: block;
+  }
+  .outro-mark {
+    font-family: var(--mono);
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 40px;
+  }
+  .outro-mark .ascii {
+    font-family: var(--mono);
+    color: var(--accent);
+  }
+  .outro .section-label { color: color-mix(in srgb, var(--bg) 60%, transparent); }
+  .outro .section-label::before { background: var(--accent); }
+  .outro blockquote {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(36px, 4vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .outro blockquote em {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .outro blockquote .ascii {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 0.6em;
+    vertical-align: middle;
+  }
+  .signature {
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    padding-top: 32px;
+    border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
+  }
+  .signature .who {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+  }
+  .signature .who small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: color-mix(in srgb, var(--bg) 60%, transparent);
+  }
+  .signature .scribble {
+    font-family: 'Onest', cursive;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    transform: rotate(-3deg);
+    color: var(--accent);
+  }
+
+  .outro-media {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .outro-media image-slot { aspect-ratio: 4 / 3; background: #2a2a2a; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: color-mix(in srgb, var(--bg) 65%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--bg) 18%, transparent);
+    padding: 28px 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ---------- side rail year nav ---------- */
+  .rail {
+    position: fixed;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .rail a {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    transition: background .15s, color .15s, transform .15s;
+  }
+  .rail a:hover { background: var(--ink); color: var(--bg); transform: translateX(-3px); }
+  .rail a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  image-slot {
+    --slot-bg: color-mix(in srgb, var(--bg-deep) 100%, transparent);
+    --slot-fg: var(--muted);
+  }
+  [contenteditable] { outline: none; }
+</style>
+</head>
+<body data-theme="red">
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <span>Конкурс «Лучший выпускник» <span style="color:var(--muted)">/ 2026</span></span>
+    </div>
+    <nav>
+      <a href="#year-1">I курс</a>
+      <a href="#year-2">II курс</a>
+      <a href="#year-3">III курс</a>
+      <a href="#year-4">IV курс</a>
+      <a href="#outro" class="is-cta">Финал</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Анастасия Дехтерева <i class="dot"></i> ФТМИ <i class="dot"></i> Управление технологическими инновациями <i class="dot"></i> Best Alumni · ITMO 2026 <i class="dot"></i> Анастасия Дехтерева <i class="dot"></i> ФТМИ <i class="dot"></i> Управление технологическими инновациями <i class="dot"></i> Best Alumni · ITMO 2026 <i class="dot"></i></span>
+    <span>Анастасия Дехтерева <i class="dot"></i> ФТМИ <i class="dot"></i> Управление технологическими инновациями <i class="dot"></i> Best Alumni · ITMO 2026 <i class="dot"></i> Анастасия Дехтерева <i class="dot"></i> ФТМИ <i class="dot"></i> Управление технологическими инновациями <i class="dot"></i> Best Alumni · ITMO 2026 <i class="dot"></i></span>
+  </div>
+</div>
+
+<!-- ============ side rail ============ -->
+<div class="rail">
+  <a href="#top" data-r="top">↑</a>
+  <a href="#year-1" data-r="year-1">I</a>
+  <a href="#year-2" data-r="year-2">II</a>
+  <a href="#year-3" data-r="year-3">III</a>
+  <a href="#year-4" data-r="year-4">IV</a>
+  <a href="#outro" data-r="outro">★</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>
+          Анастасия<br>
+          <span class="underline">Дехтерева</span><br>
+          <span class="italic">— четыре года в ИТМО</span>
+        </h1>
+
+        <div class="hero-meta">
+          <div>
+            <div class="k">
+</div>
+            <div class="v">Факультет технологического менеджмента и инноваций</div>
+          </div>
+          <div>
+            <div class="k">
+</div>
+            <div class="v">Управление технологическими инновациями</div>
+          </div>
+          <div>
+            <div class="k">
+</div>
+            <div class="v">Бакалавриат
+2022 — 2026</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-photo">
+        <image-slot id="hero" shape="rect" placeholder="Перетащи свой главный портрет"></image-slot>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto">
+  <div class="wrap manifesto-grid">
+    <p>Меня зовут Дехтерева Анастасия, я студентка
+4 курса бакалавриата ФТМИ направления «Управление технологическими инновациями».
+В ИТМО я приобрела друзей, возможность найти себя и компетенции, которые помогли мне раскрыться. </p>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline">
+
+  <!-- =============== YEAR 1 =============== -->
+  <article class="year" id="year-1">
+    <div class="wrap">
+      <header class="year-head">
+        <div class="year-num"><span class="big">1</span><span class="lbl">курс</span></div>
+        <div class="year-titleblock">
+          <h2 class="year-title">Я перехала в Питер
+и нашла <span class="accent">друзей</span></h2>
+          <div class="year-tags">
+            <span>Мегабаттл</span>
+            <span>Пенофлексеры</span>
+            <span>фехтование</span>
+            <span>Адаптеры</span>
+            <span>Мегаквиз</span>
+            <span>Buddy System</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="year-body">
+        <div>
+          <p class="year-lead">Как только я переехала в Санкт-Петербург благодаря проекту ITMO.Megabattle я с первого семестра нашла компанию друзей, с которой мы прошли сквозь все годы обучения и стали только ближе.</p>
+
+          <ol class="moments">
+            <li>
+              <span class="m-date">Осень 2022</span>
+              <span class="m-body">Первый ITMO.Megabattle в роли сценаристки и реквизиторки. Создаем компанию под кодовым словом Пенофлекс</span>
+              <div class="m-photo"><image-slot id="m-y1-1" placeholder="Первый Мегабаттл"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2022</span>
+              <span class="m-body">Вступаю в <b>сборную ИТМО по фехтованию</b></span>
+              <div class="m-photo"><image-slot id="m-y1-2" placeholder="Фехтование"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2023</span>
+              <span class="m-body">Занимаем 3-е место в Mega Quiz с командой "Пенофлекс"</span>
+              <div class="m-photo"><image-slot id="m-y1-3" placeholder="Мегаквиз — бронза"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2023</span>
+              <span class="m-body">Прохожу школу адаптеров — учусь быть проводником для тех, кто придет после меня</span>
+              <div class="m-photo"><image-slot id="m-y1-4" placeholder="Школа Адаптеров"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2023</span>
+              <span class="m-body">Получаю главную роль пионерки в ITMO.Megabattle, пишу сценарий с пенофлексерами, занимаем 2-е место</span>
+              <div class="m-photo"><image-slot id="m-y1-5" placeholder="Главная роль"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Лето 2023</span>
+              <span class="m-body">Иду в Buddy System Club — помогаю иностранным студентам почувствовать себя в России как дома</span>
+              <div class="m-photo"><image-slot id="m-y1-6" placeholder="Buddy System"></image-slot></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- =============== YEAR 2 =============== -->
+  <article class="year" id="year-2" data-tone="paper">
+    <div class="wrap">
+      <header class="year-head">
+        <div class="year-num"><span class="big">2</span><span class="lbl">курс</span></div>
+        <div class="year-titleblock">
+          <h2 class="year-title">Пробую себя в роли <span class="accent">лидера и ответственного</span></h2>
+          <div class="year-tags">
+            <span>актив ФТМИ</span>
+            <span>посвят</span>
+            <span>Ягодное</span>
+            <span>Хэллоуин</span>
+            <span>Панчлайн</span>
+            <span>сценарий</span>
+            <span>клуб «Адаптер»</span>
+            <span>КМУ</span>
+            <span>Гран-при</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="year-body">
+        <div>
+          <p class="year-lead">Год, когда я перестала бояться брать ответственность и участвовала в каждом мероприятии актива ФТМИ. Зимой присоединилась к организаторам клуба «Адаптер», весной мы взяли Гран-при на Мегабаттле.</p>
+
+          <ol class="moments">
+            <li>
+              <span class="m-date">Осень 2023</span>
+              <span class="m-body">Адаптер легендарного поток инноватиков</span>
+              <div class="m-photo"><image-slot id="m-y2-0" placeholder="Я и мои первокурсники"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2023</span>
+              <span class="m-body">Организатор <b>выезда актива ФТМИ</b></span>
+              <div class="m-photo"><image-slot id="m-y2-1" placeholder="Выезд ФТМИ"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2023</span>
+              <span class="m-body">Организатор <b>посвящения в первокурсники</b></span>
+              <div class="m-photo"><image-slot id="m-y2-2" placeholder="Посвящение"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2023</span>
+              <span class="m-body">Организатор <b>Хэллоуина</b> на факультете</span>
+              <div class="m-photo"><image-slot id="m-y2-3" placeholder="Хэллоуин"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2023</span>
+              <span class="m-body"><b>Ответственная за сценарий</b> ФТМИ на Мегабаттле</span>
+              <div class="m-photo"><image-slot id="m-y2-4" placeholder="Сценарий"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Зима 2023</span>
+              <span class="m-body">Первый <b>ИТМО.Панчлайн</b> в составе <b>Пенофлексеров</b></span>
+              <div class="m-photo"><image-slot id="m-y2-5" placeholder="Панчлайн"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2023</span>
+              <span class="m-body">Становлюсь <b>организатором клуба «Адаптер»</b></span>
+              <div class="m-photo"><image-slot id="m-y2-6" placeholder="Клуб «Адаптер»"></image-slot></div>
+            </li>
+            <li class="no-photo">
+              <span class="m-date">Весна 2024</span>
+              <span class="m-body">Участвую в <b>КМУ</b> — статья про <b>ИИ в образовании</b></span>
+            </li>
+            <li class="is-highlight">
+              <span class="m-date">Весна 2024</span>
+              <span class="m-body"><b>Гран-при ITMO.Megabattle</b> — ответственная за сценарий</span>
+              <div class="m-photo"><image-slot id="m-y2-8" placeholder="Гран-при"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Лето 2024</span>
+              <span class="m-body">Делаем <b>выезд актива ФТМИ</b> в Ягодное</span>
+              <div class="m-photo"><image-slot id="m-y2-9" placeholder="Выезд ФТМИ · Ягодное"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Лето 2024</span>
+              <span class="m-body">И <b>выезд клуба «Адаптер»</b> в Ягодное</span>
+              <div class="m-photo"><image-slot id="m-y2-10" placeholder="Выезд Адаптера"></image-slot></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- =============== YEAR 3 =============== -->
+  <article class="year" id="year-3" data-tone="deep">
+    <div class="wrap">
+      <header class="year-head">
+        <div class="year-num"><span class="big">3</span><span class="lbl">курс</span></div>
+        <div class="year-titleblock">
+          <h2 class="year-title">Уезжаю в Монпелье —
+возвращаюсь новым человеком</h2>
+          <div class="year-tags">
+            <span>Франция</span>
+            <span>Монпелье</span>
+            <span>обмен</span>
+            <span>клуб «Адаптер»</span>
+            <span>КМУ</span>
+            <span>женское лидерство</span>
+            <span>Мегаквиз ★</span>
+            <span>Газпром нефть</span>
+            <span>кафедра ИИ</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="year-body">
+        <div>
+          <p class="year-lead">Это был самый лучший курс, когда я уехала по обмену во Францию и вернулась обратно уже с совершенно другими целями, взглядом на мир. Я еще больше стала ценить друзей и возможности, которые дает мне ИТМО. </p>
+
+          <ol class="moments">
+            <li class="no-photo">
+              <span class="m-date">Осень 2024</span>
+              <span class="m-body">Снова адаптер, но теперь уже магистратуры ФТМИ ТиСБТ</span>
+            </li>
+            <li class="is-feature">
+              <span class="m-date">Осень 2024</span>
+              <span class="m-body">
+                Выиграла <b>семестровый обмен</b> и уехала во Францию, в <em>Монпелье</em>.
+                Школьная мечта стала реальностью: путешествия, друзья со всего мира,
+                международная среда и первые данные для будущего исследования
+              </span>
+              <div class="m-photos">
+                <div class="p-big"><image-slot id="m-y3-1a" placeholder="Монпелье · главный кадр"></image-slot></div>
+                <div class="p-sm"><image-slot id="m-y3-1b" placeholder="Друзья со всего мира"></image-slot></div>
+                <div class="p-sm"><image-slot id="m-y3-1c" placeholder="Путешествие по Европе"></image-slot></div>
+              </div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2025</span>
+              <span class="m-body">Все еще организатор клуба «Адаптер». Делаем новый сезон, новую школу</span>
+              <div class="m-photo"><image-slot id="m-y3-2" placeholder="Адаптер · 2025"></image-slot></div>
+            </li>
+            <li class="no-photo">
+              <span class="m-date">Весна 2025</span>
+              <span class="m-body">Участвую в КМУ с исследованием про восприятие женского лидерства на основе данных, которые я собрала во время обмена</span>
+            </li>
+            <li class="is-highlight">
+              <span class="m-date">Весна 2025</span>
+              <span class="m-body">1 место на Mega Quiz в составе команды Пенофлекс</span>
+              <div class="m-photo"><image-slot id="m-y3-4" placeholder="Мегаквиз · 1 место"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2025</span>
+              <span class="m-body">Участие в <b>ИТМО.Панчлайн</b> в составе команды <b>Пенофлекс</b> — выиграли номинацию <b>«Мисс Панчлайн»</b> всей командой, впервые за всю историю клуба</span>
+              <div class="m-photo"><image-slot id="m-y3-punch" placeholder="Мисс Панчлайн · Пенофлекс"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2025</span>
+              <span class="m-body">Начинаю работать в Газпром нефти на кафедре ИИ курирую направление внешнего взаимодействия и работы с молодыми кадрами</span>
+              <div class="m-photo"><image-slot id="m-y3-5" placeholder="Газпром нефть · кафедра ИИ"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Лето 2025</span>
+              <span class="m-body">Делаем <b>выезд актива ФТМИ в Ягодное</b></span>
+              <div class="m-photo"><image-slot id="m-y3-6" placeholder="Выезд ФТМИ"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Лето 2025</span>
+              <span class="m-body">И <b>августовский выезд клуба «Адаптер»</b></span>
+              <div class="m-photo"><image-slot id="m-y3-7" placeholder="Выезд Адаптера"></image-slot></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- =============== YEAR 4 =============== -->
+  <article class="year" id="year-4">
+    <div class="wrap">
+      <header class="year-head">
+        <div class="year-num"><span class="big">4</span><span class="lbl">курс</span></div>
+        <div class="year-titleblock">
+          <h2 class="year-title">Работаю, учусь,<br>планирую <span class="accent">Турцию.</span></h2>
+          <div class="year-tags">
+            <span>работа</span>
+            <span>корпоративные программы</span>
+            <span>Турция</span>
+            <span>финальный КМУ</span>
+            <span>диплом</span>
+            <span>друзья</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="year-body">
+        <div>
+          <p class="year-lead">Финальный круг. Работаю по специальности, организую мероприятия для студентов корпоративных программ в ИТМО, замыкаю свою научную траекторию и планирую с друзьями первое пост-выпускное путешествие.</p>
+
+          <ol class="moments">
+            <li>
+              <span class="m-date">Осень 2025</span>
+              <span class="m-body">В третий раз адаптер, но теперь уже ТИНТа</span>
+              <div class="m-photo"><image-slot id="m-y4-0" placeholder="Адаптер 2025"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2025</span>
+              <span class="m-body">Делаю мероприятия для студентов <b>корпоративной программы бакалавриата и магистратуры</b> в ИТМО</span>
+              <div class="m-photo"><image-slot id="m-y4-1" placeholder="Корпоративная программа"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2025</span>
+              <span class="m-body">Выигрываем <b>3-е место</b> на творческом конкурсе короткометражных фильмов <b>Brand Pitch</b></span>
+              <div class="m-photo"><image-slot id="m-y4-bp" placeholder="Brand Pitch · 3 место"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Осень 2025</span>
+              <span class="m-body">Собираемся компанией и <b>организуем поездку в Турцию</b></span>
+              <div class="m-photo"><image-slot id="m-y4-2" placeholder="Турция · план"></image-slot></div>
+            </li>
+            <li class="no-photo">
+              <span class="m-date">Весна 2026</span>
+              <span class="m-body">Участвую в КМУ по теме диплома</span>
+            </li>
+            <li class="is-highlight">
+              <span class="m-date">Весна 2026</span>
+              <span class="m-body">Выигрываем <b>2 место</b> на Мегаквизе с Пенофлексерами</span>
+              <div class="m-photo"><image-slot id="m-y4-quiz2" placeholder="Мегаквиз · 2 место"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">Весна 2026</span>
+              <span class="m-body">Завершаю диплом — по тематике моей первой статьи на КМУ, пишу про применение технологий ИИ для организации корпоративных образовательных программ</span>
+              <div class="m-photo"><image-slot id="m-y4-4" placeholder="Защита диплома"></image-slot></div>
+            </li>
+            <li>
+              <span class="m-date">2026 — ∞</span>
+              <span class="m-body"><b>Работаю по специальности, дружу, учусь</b></span>
+              <div class="m-photo"><image-slot id="m-y4-5" placeholder="Дальше — больше"></image-slot></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============ OUTRO ============ -->
+<section class="outro" id="outro">
+  <div class="wrap">
+    <div class="outro-grid">
+      <div class="outro-mark"><span class="ascii">[★]</span></div>
+      <div>
+        <blockquote>
+          Благодаря Университету ИТМО я обрела близких друзей,
+          попробовала себя в творчестве, волонтерстве и науке —
+          и приобрела компетенции, которые помогли мне
+          <em>раскрыться</em> и заниматься тем, что мне нравится.
+          <br><br>
+          Спасибо, мой любимый университет. <br>
+          Возвращаясь в прошлое к моменту выбора ВУЗа,<br>
+          я бы еще <em>миллион раз</em> выбрала ИТМО!
+        </blockquote>
+
+        <div class="signature">
+          <div class="scribble">с любовью,&nbsp;Настя</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- image-slot component -->
+<script src="image-slot.js"></script>
+
+<!-- React for tweaks panel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "red",
+    "showRail": true,
+    "showTicker": true
+  }/*EDITMODE-END*/;
+
+  const THEMES = {
+    red:    { swatch: ['#E83417','#EFE7D3','#0F0F0F'], label: 'Красный · крем' },
+    forest: { swatch: ['#0E6B3A','#EEE9D8','#0F0F0F'], label: 'Лесной · крем' },
+    cobalt: { swatch: ['#1E3FB8','#EDE7D6','#0F0F0F'], label: 'Кобальт · крем' },
+    ink:    { swatch: ['#FE4A23','#F5F0E1','#101010'], label: 'Темный · оранж' },
+  };
+
+  function Tweaks() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    React.useEffect(() => {
+      document.body.setAttribute('data-theme', t.theme);
+      const rail = document.querySelector('.rail');
+      const tick = document.querySelector('.ticker');
+      if (rail) rail.style.display = t.showRail   ? '' : 'none';
+      if (tick) tick.style.display = t.showTicker ? '' : 'none';
+    }, [t.theme, t.showRail, t.showTicker]);
+
+    const themeKeys = Object.keys(THEMES);
+    const currentSwatch = THEMES[t.theme]?.swatch || THEMES.red.swatch;
+
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection title="Палитра">
+          <TweakSelect
+            label="Тема"
+            value={t.theme}
+            onChange={v => setTweak('theme', v)}
+            options={themeKeys.map(k => ({ value: k, label: THEMES[k].label }))}
+          />
+          <TweakColor
+            label="Превью"
+            value={currentSwatch}
+            options={themeKeys.map(k => THEMES[k].swatch)}
+            onChange={swatch => {
+              const k = themeKeys.find(k => THEMES[k].swatch.join() === swatch.join());
+              if (k) setTweak('theme', k);
+            }}
+          />
+        </TweakSection>
+        <TweakSection title="Элементы">
+          <TweakToggle label="Боковой rail с годами"   value={t.showRail}   onChange={v => setTweak('showRail', v)} />
+          <TweakToggle label="Бегущая строка сверху"   value={t.showTicker} onChange={v => setTweak('showTicker', v)} />
+        </TweakSection>
+      </TweaksPanel>
+    );
+  }
+
+  const root = document.createElement('div');
+  document.body.appendChild(root);
+  ReactDOM.createRoot(root).render(<Tweaks />);
+</script>
+
+<script>
+  // side rail active state
+  const rail = document.querySelectorAll('.rail a');
+  const sections = ['year-1','year-2','year-3','year-4','outro'].map(id => document.getElementById(id));
+  const onScroll = () => {
+    const y = window.scrollY + window.innerHeight * 0.35;
+    let active = null;
+    sections.forEach(s => { if (s && s.offsetTop <= y) active = s.id; });
+    rail.forEach(a => a.classList.toggle('active', a.dataset.r === active));
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = id === 'top' ? document.body : document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
